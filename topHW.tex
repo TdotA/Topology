@@ -131,5 +131,146 @@ Let $X=\{a,b\}$ with the following open sets:$\emptyset, \{a\}, \{a,b\}$. Is $X$
 	Check that $h: \mathbb{R} \rightarrow \mathbb{R}$ defined so that $h(x) = 3x$ is a homeomorphism.
 \end{Ex} 
 \begin{Sol} \end{Sol}
-First let's check if $h$ is continuous. 
+\noindent First let's check if $h$ is continuous. As we're working in $\mathbb{R}$, all open sets are unions of open intervals, now if we take $U \in \tau$ in the codomain, and assume $U$ is of the form $\bigcup_{i \in I}(a_i, b_i)$, then $f^{-1}(U) = \bigcup_{i \in I}(\frac{a_i}{3}, \frac{b_i}{3})$, which is obviously open. By similar argument the invers is continuous and hence $h$ is homeomorphism. 
+
+\begin{Ex}
+	Show that $(A, \tau_A)$ is a space, assuming $A \subset X$ and $\tau_A$ is a subspace topology.
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+\noindent To show that $(A. \tau_A)$ is a space we need to show $A \in \tau_A$ and $\emptyset \in \tau_A$. To show this we have to find $U \in \tau_X$ such that $U \cap A = A$, and $V \in \tau_X$ such that $V \cap A = \emptyset$. Let's take $U = X$, and $V = \emptyset$, by definition $U,V$ satisfy our needs, so $(A , \tau_A)$ is a space with a subspace topology.
+
+\begin{Ex}
+	Suppose $(X, \tau_X)$ and $(Y, \tau_Y)$ are spaces, $f: X \rightarrow Y$ is a continuous and $A \subset X$. Let $(A, \tau_A)$ be the space with subspace topology. Show $f|A$ is continuous. 
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+\noindent Let $U \in \tau_Y$ and let $V \in \tau_X$ be $f^{-1}(U)$. Now by definition $(f|A)^{-1} = A \cap V$ and hence open in the subspace topology, so $f|A$ is continuous.
+
+\begin{Ex}
+	Is discrete topology in fact a topology? Is course topology in fact a topology?
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+\noindent (1): Discrete topology is a topology because $X \in 2^X$ and $\emptyset \in 2^X$ and $\tau_X = 2^X$. \\
+\noindent (2): Course topology is a topology because by definition it only contains emppty set and the whole set.
+
+\begin{Ex}
+	Show that the space $(X, \tau_X)$ has the discrete topology if and only if $\{x\}$ is open in $X \forall x \in X$ if and only if $\forall (Y, \tau_Y)$, and all functions $f: X \rightarrow Y$ are continuous. 
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+\noindent $\implies$: Let X be a space with discrete topology, thus every $U \subset X$ is open, and $\{x\} \subset X$, hence $\{x\}$ is open. Now take $v \in \tau_Y$ and any $f : X \rightarrow Y$, now $f^{-1}(V) \subset X \implies f^{-1}(V) \in \tau_X$, so $f$ is continuous. \\
+
+\noindent $\impliedby$: Suppose any function $f: X \rightarrow Y$ is continuous. That means that if $\forall y \in Y$, $\{y\} \in \tau_Y$, $f^{-1}(y) = \{x\}$ is open, so $\{x\} \in \tau_X$. But now, any $\bigcup_{i \in I}\{x_i\} \in \tau_X$, so any subset of $X$ is open, so $X$ has discrete topology.
+
+\begin{Ex}
+	Show that the space $(X, \tau_X)$ has course topology if and only if for all spaces $(Y, \tau_Y)$ and all functions $f: Y \rightarrow X$, $f$ is continuous. 
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+\noindent $\implies$: Assume $(X, \tau_X)$ has course topology, and let $(Y, \tau_Y)$ be any space and $f Y \rightarrow X$ be any function. Now to show that $f$ is continuous we need to check that $X$ and $\emptyset$ have open preimages, however this is easy as $f^{-1}(X) = Y$ and $f^{-1}(\emptyset) = \emptyset$ which are open by definition of a topology. \\
+\noindent $\impliedby$: Suppose $(Y, \tau_Y), (X, \tau_X)$ are spaces and any $f: Y \rightarrow X$ is continuous. Suppose $X$ has a not course topology, then we can always construct an $f_i$ that sends a closed set in $Y$ to an open set in $X$, except for $X$ and $\emptyset$ as $f^{-1}(X) = Y$ by definition and $f^{-1}(\emptyset) = \emptyset$ which are open in $Y$, so $X$ has course topology.
+\begin{Ex}
+	If $(X, \tau_a)$ is finer than $(X, \tau_b)$, which of the following functions is guaranteed to be continuous? $idx : (X , \tau_a) \rightarrow (X, \tau_b)$ or $jdx : (X , \tau_b) \rightarrow (X, \tau_a)$? Is either guaranteed to be homeomorphism?
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+Assume, $\tau_b \subset \tau_a$, now this guarantees that $idx$ is continuous, but $jdx$ isn't continuous, and thus neither is a homeomorphism.
+
+\begin{Ex}
+	If $(X, \tau_a)$ is finer than $(X, \tau_b)$, which space is likely to have more convergent sequences?
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+\noindent Courser topology is likely to have more convergent sequences as all convergent sequences in $\tau_a$ converge in $\tau_b$, but the converse doesn't need to hold. 
+
+\begin{Ex}
+	Suppose $(X, \tau_X)$ is a space, $A \subset X$, and $(A, \tau_A)$ has the subspace topology. Show that if $F \subset A$, then $F$ is closed in $(A, \tau_A)$ if and only if $F = A \cap C$, and $C$ is closed in $X$.  
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+\noindent $\implies$: Let $F$ be closed in $A$, then $F^c \in \tau_A$ and $\exists U \in \tau_X$ such that $F^c = A \cap U$, so now $F = A \cap U^c$ and $U^c$ is closed in X exactly like we wanted.
+
+\noindent $\impliedby$: Take $F = U \cap A$ for some closed $U \in X$, then $F^c = U^c \cap A$, and since $U^c \in \tau_X$ we know $F^c \in \tau_A$, and hence $F$ is closed in A.
+
+\begin{Ex}
+  $\mathbb{R}$ with usual topology is connected.
+\end{Ex}
+ 
+\begin{Sol} \end{Sol}
+Let $A \subset \mathbb{R}$ be open, nonempty and $A \neq \mathbb{R}$, now we need to show $A$ is not closed. Let $a \in A$ and take $c \not \in A$, $a < c$. Now define a set $Z = \{ x| x \in \mathbb{R}, [a,x] \subset A \}$, and let $b = sup(Z)$. By definition of $Z$, $b \not \in Z$, but $b \in \bar{Z}$, so $b \in l(Z) $. Now, $b \not\in Z \implies b \not\in A$ and $b \in \bar{Z} \implies b \in \bar{A}$, so $l(A) \not \subset A$, hence A is closed.  
+
+\begin{Ex}
+	Suppose $X$ is a space and $A \subset X$ is connected. Show that $\bar{A}$ is connected.
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+\noindent Take $Y \subset X = \bar{A}$, now $A$ is dense in $Y$. Take nonempty $U \subset Y$ and assume $U$ is clopen in $Y$, now we want to show $U = Y$. By definition $U$ is clopen in $A$, further, either $U \cap A = A$ or $U \cap A = \emptyset$. To show that intersection is nonempty take $x \in U$, now if $x \not\in A$, then $x \in \bar{A} \implies x \in l(A)$. Now by definition of a limit point $\forall S \in \tau$ s.t. $x \in S$, $S \cap A \neq \emptyset$, and as $U \in \tau$, we can't have $U \cap A = \emptyset$, so $U \cap A = A$. Now: $$A \subset U \implies \bar{A} \subset \bar{U} \implies Y \subset \bar{U} \implies Y = U$$ As we wanted to show.
+
+\begin{Ex}
+	Suppose $X$ is a space and let $a \in X$. Now assume that $A_i$ is connected and $a \in A_i$ $\forall i \in I$. Show that if $\bigcup_{i \in I}A_i = X$, X is connected. 
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+\noindent Suppose $U \subset X$ is clopen, and $U \neq \emptyset$, now by definition, $U^c$ is clopen. Assume $a \in U$, now we want to prove $X \subset U$. To do this, let's get $x \in A_i$, note that $A_i \cap U$ is clopen and $a \in A_i \cap U$, hence $A_i \cap U = A_i$, so $x \in U$. Hence, $X = U$, $\forall \text{ clopen and nonempty } U \in X$, so $X$ is connected.
+
+\begin{Ex}
+	If $X$ is a space and $a \in X$, then there is a unique component $A \subset X$, such that $a \in A$.
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+\noindent Take $a \in X$ and let $A_i$ be the union of all connected subsets $B$ such that $a \in B$. Now $A_i$ is connected. Furthermore $A_i$ is maximal by it's definition. Now if $A$ and $B$ are components and $A \cap B \neq \emptyset$, then $A \cup B$ is connected, hence $A = B$. Thus the component containing any $x \in X$ is unique.
+
+\begin{Ex}
+	Suppose $(X, \tau_X)$ is connected and $f: (X, \tau_X) \rightarrow (Y, \tau_Y)$ is a continuous surjection. Show that $(Y, \tau_Y)$ is connected.
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+\noindent Take a clopen, nonempty $U \subset Y$ and show that $U = Y$. Assume opposite for contradiction, now $f^{-1}(U)$ and $(f^{-1}(U))^c$ are both open, but the only nonempty set satisfying that is $X$, so now $f^{-1}(U) = X$, and as $f$ is surjective that means that $U = Y$. So $Y$ is connected.
+
+\begin{Ex}
+	Suppose $X$ is a space and $A \subset X$ is a component of $X$. Why is $A$ closed?
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+\noindent By definition $A$ is a maximal connected set and is therefore clopen, and any clopen set is closed.
+
+\begin{Ex}
+	Suppose $X$ is a space and $A \subset X$ is closed, $B \subset X$ is closed and $f: A \rightarrow Y$ and $g: B \rightarrow Y$ are continuous such that $f|A \cap B = g|A\cap B$. Then $h = f \cup g: A\cup B \rightarrow Y$ is continuous.
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+\noindent Firstly, let $K \subset Y$ be closed, then $h^{-1}(K) = (h^{-1}(K) \cap A) \cup (h^{-1}(K) \cap B) = h^{-1}(K) \cap (A \cup B)$. So now $h^{-1}(K)$ is the union of two closed subsets of $X$. Thus by subspace topology, $h^{-1}$ is closed in $A \cup B$.
+
+\begin{Ex}
+	Suppose $(Y, \tau_Y)$ is a space and $X \subset Y$. Show that the following are equivalent. The subspace $(X, \tau_X)$ is compact. If $\{V_i\}$ is a collection of open sets in $\tau_Y$ covering  $X$, there exists finitely many sets $\{V_1, V_2, \dots ,V_n\} \subset \{V_i\}$ such that $V \subset \bigcup_{j=1}^n V_j$.
+
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+\noindent $\implies$: If $X$ is compact then every open cover yields a finite subcover. Now take $\{V_i\}$ to be the open cover and by definition it will yield a finite subcover, i.e $\{V_1, V_2, \dots ,V_n \}$. Converse is entirely similar. 
+
+\begin{Ex}
+	$[0,1]$ is compact using the subspace topology of $\mathbb{R}$.
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+
+\noindent Since every open $U$ in $\mathbb{R}$ is a union of open intervals, it suffices to prove the special case when $[0,1]$ is covered by open intervals. Suppose $[0,1] \subset \bigcup_{i \in I}(a_i,b_i)$. Now let $K = \{x \in [0,1]| [0,x] \text{ can be covered by finitely many }(a_i, b_i) \}$. $0 \in K \implies K \neq \emptyset$. If $x \in K$ and $0 < y < x$, then $y \in K$, and since $K \subset [0,1]$, we can express $K$ as either $[0,b]$ or $[0,b)$. Now let $b$ be $sup(K)$, so $b \in K$, now if we take $b<1$, we can always find another $a \in K$ such that $a > k$, contradicting maximality of $b$, hence $b = 1$, $K = [0,1]$, $[0,1]$ is compact.
+
+\begin{Ex}
+	Suppose $(X, \tau_X)$ is a compact space, and $f: (X, \tau_X) \rightarrow (Y,\tau_Y)$ is a continuous surjection. Show that $(Y, \tau_Y)$ is a compact space.  
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+Take a family  of open covers $O \in \tau_Y$ covering $Y$ and prove that it yields a finite subcover. Firstly note that $f^{-1}(O) \in \tau_X$ and thus yields a finite subcover, thus the image of that finite subcover is open in $Y$ and covers $Y$. so $Y$ is compact.
+
+\begin{Ex}
+	Supoose $(X , \tau_X)$ is a compact space and $A \subset X$ is closed. Prove that $A, \tau_A$ is compact.
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+Cover A by open sets from $X$ and throw in the open set $V = X \setminus A$, that gives us an open cover of $X$, now take the finite subcover guaranteed by compactness of $X$, and throw out $V$, notice we have covered $A$.
+
 \end{document}
