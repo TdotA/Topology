@@ -257,7 +257,7 @@ Let $A \subset \mathbb{R}$ be open, nonempty and $A \neq \mathbb{R}$, now we nee
 
 \begin{Sol}\end{Sol}
 
-\noindent Since every open $U$ in $\mathbb{R}$ is a union of open intervals, it suffices to prove the special case when $[0,1]$ is covered by open intervals. Suppose $[0,1] \subset \bigcup_{i \in I}(a_i,b_i)$. Now let $K = \{x \in [0,1]| [0,x] \text{ can be covered by finitely many }(a_i, b_i) \}$. $0 \in K \implies K \neq \emptyset$. If $x \in K$ and $0 < y < x$, then $y \in K$, and since $K \subset [0,1]$, we can express $K$ as either $[0,b]$ or $[0,b)$. Now let $b$ be $sup(K)$, so $b \in K$, now if we take $b<1$, we can always find another $a \in K$ such that $a > k$, contradicting maximality of $b$, hence $b = 1$, $K = [0,1]$, $[0,1]$ is compact.
+\noindent Since every open $U$ in $\mathbb{R}$ is a union of open intervals, it suffices to prove the special case when $[0,1]$ is covered by open intervals. Suppose $[0,1] \subset \bigcup_{i \in I}(a_i,b_i)$. \\ Now let $K = \{x \in [0,1]| [0,x] \text{ can be covered by finitely many }(a_i, b_i) \}$. $0 \in K \implies K \neq \emptyset$. If $x \in K$ and $0 < y < x$, then $y \in K$, and since $K \subset [0,1]$, we can express $K$ as either $[0,b]$ or $[0,b)$. Now let $b$ be $sup(K)$, so $b \in K$, now if we take $b<1$, we can always find another $a \in K$ such that $a > k$, contradicting maximality of $b$, hence $b = 1$, $K = [0,1]$, $[0,1]$ is compact.
 
 \begin{Ex}
 	Suppose $(X, \tau_X)$ is a compact space, and $f: (X, \tau_X) \rightarrow (Y,\tau_Y)$ is a continuous surjection. Show that $(Y, \tau_Y)$ is a compact space.  
@@ -272,5 +272,98 @@ Take a family  of open covers $O \in \tau_Y$ covering $Y$ and prove that it yiel
 
 \begin{Sol} \end{Sol}
 Cover A by open sets from $X$ and throw in the open set $V = X \setminus A$, that gives us an open cover of $X$, now take the finite subcover guaranteed by compactness of $X$, and throw out $V$, notice we have covered $A$.
+
+\begin{Ex}
+	Let $X = \{1,2,3, \dots\}$ with a funny topology. Let's call it the closed finite topology, a topology where every finite set is closed. Which of the $T_1, T_2$ axioms are true? Do convergent sequences have unique limits? Is $X$ compact? Are compact subsets closed? 
+\end{Ex}
+\begin{Sol}\end{Sol}
+\noindent Let's check for $T_1$ first, as only finite sets are closed, this is pretty easy to confirm as for two distinct points $x,y \in X$, we can take $U_x = X \setminus \{y\}$ and $U_y = X \setminus \{x\}$, both will be open as they're infinite and they satisfy the $T_1$ axiom. \\
+ Now for $T_2$, we firstly take sets $E,O \in \tau_X$ such that $E$ contains all even numbers and $O$ contains all the even ones, it is obvious that $E \cap O = \emptyset$, now for any two distinct points $x, y$, take $U_x = E \setminus \{y\} \cup \{x\}$ if $y \in E$ or $U_x = E \cup \{x\}$ otherwise, now for $U_y$ take $U_y = O \setminus \{x\} \cup \{y\}$ if $x \in O$ or $U_y = O \cup \{y\}$ otherwise. Obviously $U_x$ and $U_y$ are open and disjoint, hence satisfying the properties of $T_2$ space. Now by definition convergent sequences have unique limits. \\
+  Now to check if $X$ is compact. Let $K = \{x \in X| \{1, \dots, x \} \text{ can be covered by a finite amount of open sets}\}$, now show that $K = X$. As long as $\{1,2, \dots, x\}$ is finite, it is compact, so now $K$ is unbounded, so $K = X$.
+  
+\begin{Ex}
+	Show that $W \subset X \times Y$ is open iff $W$ is a union of sets of the form $U_i \times V_i$ with $U_i$ open in $X$ and $V_i$ open in $Y$.
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+\noindent $\implies$: Let $W$ be open in $X \times Y$, now by definition of topology $W$ is either a cartesian product $U \times V$ where $U \in X$, $V \in Y$ or the union of such sets. Converse follows similar logic.
+
+\begin{Ex}
+	Given functions $f: W \rightarrow X \text{ and } g: W \rightarrow Y$ define $(f,g): W \rightarrow X \times Y$ as $(f,g)(w)=(f(w),g(w))$. Show that $(f,g)$ is continuous if and only if $f$ and $g$ are continuous.  
+\end{Ex} 
+\begin{Sol} \end{Sol} 
+\noindent $\implies$: Assume $(f,g)$ is continuous, that means that if $U$ is open in $X \times Y$, then $f(U)$ is open in $X$ and $g(U)$ is open in $Y$ as by the definition of product topology, so in order for $(f,g)^{-1}(U)$ to be open in $W$, then $f^{-1}(U)$ and $g^{-1}(U)$ have to be open in $W$, thus $f$ and $g$ are continuous. \\
+\noindent $\impliedby$: Assume $f$ and $g$ are continuous and let $U, V$ be open in $X, Y$ respectively. Now $Z = U \times V$ is open in $X \times Y$, and $f^{-1}(U), g^{-1}(V)$ are open in $W$, and by definition of $(f,g)$, $(f,g)^{-1}(Z)$ is open in  $Z$ so $(f,g)$ is continuous.
+
+\begin{Ex}
+	Note that sets of the form $V_{i1} \cap V_{i2} \cap \dots \cap V_{in}$ must be open. Show that any open set $V \subset \prod_{i \in I}X_i$ is a union of sets of the previous format.
+\end{Ex}  
+
+\begin{Sol} \end{Sol} 
+\noindent $\implies$: Assume $U_i$ is of form $V_{i1} \times V_{i2} \times \cdots \times V_{in}$, then $U_i$ is open. Now take $S \in \tau$ and show that $S = \bigcup U_i$. If $S = X \times Y$, then $S = \bigcup_{i \in I}U_i$, as we will have $U_i = C_{ij}$ at least once for each $V_{ij}$ and the union of all open sets is for sure equal to the space. Now if $S = \emptyset$ just take all empty $U_i$ and you're done.
+
+\begin{Ex}
+	Take a function $f: W \rightarrow \prod_{i \in I}X_i$ and show it is continuous iff each function $\pi_i : W \rightarrow X_i$ is continuous.  
+\end{Ex}   
+
+\begin{Sol}\end{Sol}
+\noindent $\implies$: Suppose $f$ is continuous and construct $id_j : \prod_{i \in I}X_i \rightarrow X_j$, by definition each $id_j$ is continuous. Now note that $f \circ id_j = \pi_j$ for each $j$, and as composition of two continuous functions is continuous, each $\pi_j$ is continuous.  \\
+\noindent$\impliedby$: Suppose each $pi_i$ is continuous. Let $S= \prod_{i \in I}U_i$ be open in $\prod_{i \in I}X_i$, then $f^{-1}(S) = \bigcap_{i \in I}\pi_i^{-1}(U_i)$, a countable intersection of open sets, hence countable.
+
+\begin{Ex}
+	Show what are convergent sequences in the countable product $X_1 \times X_2 \times \dots$.
+\end{Ex}
+\begin{Sol}\end{Sol}
+\noindent My best guess is that convergent sequences in countable product $\prod_{i \in I}X_i$ are sequences $x_n$ such that $\pi_i(x_n)$ converges in $X_i$. \\ 
+$\implies$:  
+
+\begin{Ex}
+	If $X_1$ is not compact, prove that $X_1 \times X_2 \dots$ is not compact.
+\end{Ex}
+\begin{Sol}\end{Sol}
+\noindent Suppose that the product is countable for contradiction, then for every open cover $O$ in the product, we can find a finite subcover $O_\lambda$, as $O_\lambda$ is open, it is a union of open sets, and thus its components are open in each $X_i$, so $O_1$ but  can't be finite in $X_1$, thus $O$ doesn't yield an open cover, so the product is not compact.
+
+\begin{Ex}
+	Show that if each $X_n$ is sequentially compact, then the countable product $\prod_{i=1}^{n}X_i$ is sequentially compact.
+\end{Ex}  
+
+\begin{Sol}\end{Sol}
+\noindent We consider a sequence of sequences, where each is a subsequence of the last. Define $x_0 = a_1,a_2,\dots$ to be our original sequence, and construct $x_1=a_11,a_12$ to be a sequence where our first component converges(guaranteed by sequential compactness). \\
+Now similarly build $x_n$ to be a subsequence of $x_{n-1}$ such that the $n$-th component converges. Now consider: \\ \\
+\begin{array}{llll}
+	$a_{11}$& $a_{12}$& $a_{13}$& \ldots\\
+	$a_{21}$& $a_{22}$& $a_{23}$& \ldots\\
+	$a_{31}$& $a_{32}$& $a_{33}$& \ldots\\
+	\vdots& \vdots& \vdots& \ddots
+\end{array}\\ \\
+More specifically consider the sequence on the diagonal of the "matrix", each $a_mm$ converges in the $X_m$ and thus the whole sequence converges in the product and it is the subsequence of $x_0$, hence the product is sequentially compact. 
+
+\begin{Ex}
+	if $X \times Y$ are spaces using the product topology, define $f: X \times Y \rightarrow X$ as $f(x,y)=x$. Which among the following are guaranteed? The function $f$ is continuous? The function $f$ is open and closed? 
+\end{Ex}
+\begin{Sol}\end{Sol}
+\noindent None of these is guaranteed as open set $U \subset X$ can have multiple elements in it's preimage, some of which will be neither open nor closed if $V \subset Y$ is closed. 
+
+\begin{Ex}
+If $X \times Y$ is compact, is $X$ compact?
+\end{Ex}
+\begin{Sol}\end{Sol}
+\noindent By previous exercise, we know that if one component is not compact, the whole product is not compact.
+
+\begin{Ex}
+	Prove that every metric space is Hausdorff($T_2$).
+\end{Ex}
+\begin{Sol}\end{Sol}
+Let $X$ be a metri space with metric $d$. Get two distinct points $x,y \in X$, To find $U$ containing $x$ but not $y$ just let $U$ be the open ball with radius $\frac{d(x,y)}{2}$ centered at $x$, and do the same for $y$. 
+
+\begin{Ex}
+	If $X$ is $T_2$ and $Y$ is $T_2$, prove that $X \times Y$ is $T_2$.
+\end{Ex}
+\begin{Sol}\end{Sol}
+Take points $(x,y)$ and $(a,b)$ in $X \times Y$, now if we take a set $U \subset X$ such that $x \in U$ but $a \not \in U$, existance of $U$ is given to us by $X$ being $T_2$ and we find a similar $V \subset Y$ for $y$ and $b$, $U \times V$ will be open in product space and $(x,y) \in U \times V$ but $(a,b) \not \in U \times V$. now we can find the same set containing $(a,b)$, thus $X \times Y$ is $T_2$.
+
+\begin{Ex}
+	content...
+\end{Ex}
 
 \end{document}
