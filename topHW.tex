@@ -49,6 +49,11 @@ So $f^{-1}(U)$ is a union of open intervals, thus open. \\
 \noindent(3): $\bigcap_{n=1}^\infty B_n$ is complement of $\bigcup_{n=1}^\infty B_n^c$ which is an open set, so our set is closed.
 
 \begin{Ex}
+	Is $\bar{B}$ closed? Why or why not?
+\end{Ex}
+\begin{Sol}\end{Sol}
+\noindent $\bar{B}$ is cearly closed as it is intersection of closed sets, and is by definition the smallest closed set containing $B$.
+\begin{Ex}
 	Suppose $X$ is a space and $B \subset X$. Show $l(B)$ is closed if $\{x\}$ is closed for every $x \in X$. Show $B \cup l(B)$ is closed. Show that $\bar{B} = B \cup l(B)$. Show that B is closed if and only if $l(B) \subset B$
 \end{Ex}
 
@@ -71,7 +76,7 @@ Now let's show that (1): $B \cup l(B) \subset \bar{B}$ and (2): $\bar{B} \subset
 $\impliedby$: If $U$ is a union of open metric balls, then each component of $U$ is in $\tau_d$, hence $U \in \tau_d$.
 
 \begin{Ex}
-s	Let $X = \mathbb{R}$ and $d_1(x,y) = |x-y|$ and $d_2(x,y) = 2|x-y|$ be metrics. Show that $\tau_{d1} = \tau_{d2}$. 
+	Let $X = \mathbb{R}$ and $d_1(x,y) = |x-y|$ and $d_2(x,y) = 2|x-y|$ be metrics. Show that $\tau_{d1} = \tau_{d2}$. 
 \end{Ex}
 
 \begin{Sol} \end{Sol}
@@ -88,15 +93,17 @@ s	Let $X = \mathbb{R}$ and $d_1(x,y) = |x-y|$ and $d_2(x,y) = 2|x-y|$ be metrics
 \end{Ex}
 
 \begin{Sol} \end{Sol}
-\noindent First let's show that $T_\mathbb{R}$ is a topology. $\emptyset \in T_\mathbb{R}$ by definition and $\mathbb{R} \in T_mathbb{R}$ as $\mathbb{R} \setminus \mathbb{R} = \emptyset$, so yes it is a topology.\\ 
+\noindent First let's show that $T_\mathbb{R}$ is a topology. $\emptyset \in T_\mathbb{R}$ by definition and $\mathbb{R} \in T_mathbb{R}$ as $\mathbb{R} \setminus \mathbb{R} = \emptyset$, unions of open sets are open as if $\mathbb{R} \setminus U$ is finite and $\mathbb{R} \setminus V$ is finite, then the $\mathbb{R} \setminus V \cup U$ is either smaller or equal to those differences, hence open. Now for intersections: it is important to note that two open sets in this topology can't be disjoint, hence the complement of intersection will be less than the union of two countable sets, so it will be countable, hence this is a topology.\\ 
 Now to prove $f$ is continuous. Let $U = \{0\}$, $U$ is closed in $\mathbb{R}$, but $U = f^{-1}(\{0\})$ which is open in $Y$, so $f$ isn't continuous. \\
+If we take a sequence $x_n \rightarrow x$ in $\mathbb{R}$ it does not have to be constant at any point as we always get arbitrarily closer to $x$ as open sets in our topology are pretty big. 
 
 \begin{Ex}
 	Suppose $X$ is metrizable, $Y$ is any space and $f: X \rightarrow Y$ is a function. Show $f$ is continuous if and only if $x_n \rightarrow x \implies f(x_n) \rightarrow f(x)$.
 \end{Ex}
 
 \begin{Sol} \end{Sol}
-\noindent $\implies$: 
+\noindent $\implies$: already proven in exercise 7. \\
+$\impliedby:$ Suppose $f$ preserves convergent sequences. We hope to show that $f$ is continuous. Suppose $B \subset Y$ is closed, and to get a contradiction suppose $A = f^{-1}(B)$ is not closed. Get a convergent sequence $a_n \rightarrow x$ in $A$ and $x \not\in A$. We know $f(a_n) \rightarrow f(x)$. Since each $f(a_n) \in B$ and since $f(a_n) \rightarrow f(x)$ we have $f(x) \in B$. Thus $x\in A$, giving us the contradiction. 
 
 \begin{Ex}
 	Show that convergent sequences have unique limits in $T_2$ spaces.
@@ -321,7 +328,7 @@ $\implies$:
 	If $X_1$ is not compact, prove that $X_1 \times X_2 \dots$ is not compact.
 \end{Ex}
 \begin{Sol}\end{Sol}
-\noindent Suppose that the product is countable for contradiction, then for every open cover $O$ in the product, we can find a finite subcover $O_\lambda$, as $O_\lambda$ is open, it is a union of open sets, and thus its components are open in each $X_i$, so $O_1$ but  can't be finite in $X_1$, thus $O$ doesn't yield an open cover, so the product is not compact.
+\noindent Suppose that the product is compact for contradiction, then for every open cover $O$ in the product, we can find a finite subcover $O_\lambda$, as $O_\lambda$ is open, it is a union of open sets, and thus its components are open in each $X_i$, so $O_1$ but  can't be finite in $X_1$, thus $O$ doesn't yield an open cover, so the product is not compact.
 
 \begin{Ex}
 	Show that if each $X_n$ is sequentially compact, then the countable product $\prod_{i=1}^{n}X_i$ is sequentially compact.
@@ -334,7 +341,7 @@ Now similarly build $x_n$ to be a subsequence of $x_{n-1}$ such that the $n$-th 
 	$a_{11}$& $a_{12}$& $a_{13}$& \ldots\\
 	$a_{21}$& $a_{22}$& $a_{23}$& \ldots\\
 	$a_{31}$& $a_{32}$& $a_{33}$& \ldots\\
-	\vdots& \vdots& \vdots& \ddots
+	\vdots& \vdots& \vdots& \ddots\\
 \end{array}\\ \\
 More specifically consider the sequence on the diagonal of the "matrix", each $a_mm$ converges in the $X_m$ and thus the whole sequence converges in the product and it is the subsequence of $x_0$, hence the product is sequentially compact. 
 
@@ -354,16 +361,106 @@ If $X \times Y$ is compact, is $X$ compact?
 	Prove that every metric space is Hausdorff($T_2$).
 \end{Ex}
 \begin{Sol}\end{Sol}
-Let $X$ be a metri space with metric $d$. Get two distinct points $x,y \in X$, To find $U$ containing $x$ but not $y$ just let $U$ be the open ball with radius $\frac{d(x,y)}{2}$ centered at $x$, and do the same for $y$. 
+\noindent Let $X$ be a metri space with metric $d$. Get two distinct points $x,y \in X$, To find $U$ containing $x$ but not $y$ just let $U$ be the open ball with radius $\frac{d(x,y)}{2}$ centered at $x$, and do the same for $y$. 
 
 \begin{Ex}
 	If $X$ is $T_2$ and $Y$ is $T_2$, prove that $X \times Y$ is $T_2$.
 \end{Ex}
 \begin{Sol}\end{Sol}
-Take points $(x,y)$ and $(a,b)$ in $X \times Y$, now if we take a set $U \subset X$ such that $x \in U$ but $a \not \in U$, existance of $U$ is given to us by $X$ being $T_2$ and we find a similar $V \subset Y$ for $y$ and $b$, $U \times V$ will be open in product space and $(x,y) \in U \times V$ but $(a,b) \not \in U \times V$. now we can find the same set containing $(a,b)$, thus $X \times Y$ is $T_2$.
+\noindent Take points $(x,y)$ and $(a,b)$ in $X \times Y$, now if we take a set $U \subset X$ such that $x \in U$ but $a \not \in U$, existance of $U$ is given to us by $X$ being $T_2$ and we find a similar $V \subset Y$ for $y$ and $b$, $U \times V$ will be open in product space and $(x,y) \in U \times V$ but $(a,b) \not \in U \times V$. now we can find the same set containing $(a,b)$, thus $X \times Y$ is $T_2$. Is $X$ compact, connected, locally connected.
 
 \begin{Ex}
-	content...
+	Since $[0,1]$ is compact and metrizable, and since the finite product $[0,1] \times \dots \times [0,1]$ is compact and $T_2$, what can you say about the relationship between the closed and compact subsets of $[0,1] \times \dots \times [0,1]$?   
 \end{Ex}
+
+\begin{Sol}\end{Sol}
+\noindent \textbf{Claim: }Every closed subset of $[0,1] \times \dots \times [0,1]$ is compact. To prove this just note that if we take a closed subset $V$, we get a free open set $V^c$ now take any open cover of $V$ and add $V^c$ in order to cover the whole product, now by compactness you get a free finite subcover of the product, and you have covered $V$. \\
+\textbf{Claim: }Every compact subset of $[0,1] \times \dots \times [0,1]$ is closed. To prove this we will assume that a compact subset $U$ is open for contradiction. Then the set is of the form $(a_1,b_1) \times (a_2,b_2) \times \cdots \times (a_n,b_n)$, but by previous exercise, if any of the multiples is not compact, the product is not compact, so we just need to prove that $(a,b) \subset [0,1]$ is not compact. To do that take the open cover made by open intervals $(0,\frac{1}{n})$, $\frac{1}{n}\le b$, this doesn't yield a finite subcover Thus, every compact subset is closed.
+
+\begin{Ex}
+	According to a legend, the compact subsets of the Eucledian metric space $\mathbb{R}^n$ are preciesly the closed and bounded subsets of $\mathbb{R}^n$. Prove this.
+\end{Ex}
+
+\begin{Sol} \end{Sol}
+Let $X$ be closed and bounded in $\mathbb{R}^n$, then $X = \prod_{i=1}^{n}[a_i,b_i]$, now every $[a_i,b_i]$ is compact and we know that product of two compact sets is compact, so by simple induction the whole countable product is compact so closed bounded sets are compact in $\mathbb{R}^n$. \\
+For converse assume $X \subset \mathbb{R}$ is compact but for contradiction suppose it is open, then it is of the form $(a_1,b_1) \times (a_2,b_2) \times \cdots $, and as we previously established, we need only one component of the product to fail in order for product to fail to be compact, and open intervals aren't compact in $\mathbb{R}$ which finishes the proof.
+
+\begin{Ex}
+	Suppose $X$ is compact and $f: X \rightarrow Y$ is continuous and $Y$ is $T_2$. Prove $f$ is a closed map.
+\end{Ex}  
+
+\begin{Sol}\end{Sol}
+Suppose for contradiction that $f$ is not a closed map. Then there exists a closed subset $V$ of $X$ whose image $f(X)$ is not closed in $Y$. This means that there exists a convergent sequence $a_n \in f(V)$ whose limit is not contained in $f(V)$\\
+
+Now by compactness of $X$ we know the inverse image $f^{-1}(a_n)$ of the sequence contains a limit point, denote it by $z$, which lies in $V$ (as $V$ is closed). But then, by continuity of $f$, we also know that $f(z)$ must be a limit point of the sequence $a_n$. Now, as the latter converges, we deduce that this limit point must be the unique limit (Hausdorff guarantees it). Thus we have
+
+$$z \in V \implies f(z)\not \in f(V)$$ 
+Yielding us a contradiction.
+
+\begin{Ex}
+	If X is metrizable and A is not closed. Then if $x \in \bar{A}\setminus A$ there exists a sequence $a_n$ converging to $x$ and for all $n$ we have $a_n \in A$
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+\noindent Get a metric $d$ such that every open set in $X$ is a union of open metric balls. Get the wanted $x \in \bar{A} \setminus A$. $x$ is a limit point of $A$. For each $n\in\mathbb{N}$ obtain $a_n \in A$ such that $a_n \in B(x, \frac{1}{2^n})$. Now $x$ is in said open ball  because $d$ is a metric and $x$ is in every open ball around $x$. Note that $x$ is a limit point of $A$ but $x\not \in A$ and the open ball is open and contains $x$ therefore the mentioned $a_n$ exists.\\
+Now to show that $a_n$ converges to $x$. Suppose $U$ is and open set containing $x$. We must find N such that if $n\ge N$ then $a_n \in U$. Since $x\in U$ and $U$ is open, $U$ is a union of open balls of $d$. Thus, there exists $y\in X$ and $\epsilon \ge 0$ such that $x$ in open $\epsilon$-ball around around $y$, call it $B_y$, note that $B_y \subset U$. Thus $d(x,y) < \epsilon$. Now take $\delta = \epsilon - d(x,y)$. Get N such that if $n>N$ then $d(x,a_n) < \delta$. Now when $n\ge N$ we get $d(a_n,y) \le d(a_n,x)+d(x,y)< \delta + (\epsilon-\delta)=\epsilon$. Thus $a_n$ converges to $x$.
+
+\begin{Ex}
+	Suppose $X$ is any space and $B \subset X$ is closed. Suppose $b_n \in B$ for each $n$ and suppose the sequence $b_n \rightarrow x$. Then $x \in B$.
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+Suppose $x\not in B$. Then $x$ is not a limit point of $B$. Let $U$ be open and contain $x$. Since $b_n \rightarrow x$, get $N$ such that $n>N \implies b_n \in U$. Since $b_n \in B$ and $x \not \in B$, this means that $x$ is a limit point of $B$ yielding us a contradiction.
+
+\begin{Ex}
+	If $X$ is path connected then $X$ is connected
+\end{Ex}
+\begin{Sol}\end{Sol}
+\noindent Fix $a \in X$, now get a path $\alpha_b$ for each $b\in X$. Now notice that image of every $\alpha_b$ is connected and thus the union of all images is connected, that union is the space $X$ and thus $X$ is connected.
+
+\begin{Ex}
+	If $X$ is nonempty, connected and locally path connected then $X$ is path connected.
+\end{Ex}
+\begin{Sol}\end{Sol}
+\noindent Fix $a\in X$. Defne $U_a = \{x \in X|\exists a path \alpha:[0; 1] \rightarrow X$ so that
+$\alpha(0) = a and \alpha(1) = x\}$. Hope to show: $U_a = X$. Obviouslt $U_a$ is nonempty as constant path $\alpha_a$ exists so $a \in U_a$. Now  to show that $U_a$ is open: fix $x \in U_a$ and choose a subset $U$ containing $x$. Now all $u \in U$ are path connected to $x$ and thus path connected to $a$ so $U \subset U_a$ and $U_a$ is open. To show that $U_a$ is closed look at the closure of $U_a$. Look at $y\in \bar{U_a}$, and choose an open path connected set $V$ containing $y$. Now as $V \cap U_a \neq \emptyset$ hence take $z$ in the intersection which is path connected to $y$ and and thus $y$ is path connected to $a$, so now $U_a = \bar{U_a}$, thus $\bar{U_a}$ is closed. Now as $U_a$ is clopen and nonempty so it is actually our space $X$ and thus our space is path connected.
+
+\begin{Ex}
+	Consider the following subset $X \subset \mathbb{R}^2$. Let $X = [(0,0),(0,1)] \cup [(0,0),(1,0)] \cup [\bigcup_{n=2}^{\infty}(\frac{1}{n},0),(\frac{1}{n},1)]$. Is $X$ compact? Connected? Locally connected? 
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+Can't think about this right now it seems hard, will do it later
+
+\begin{Ex}
+	Prove that $T_4 \implies T_3 \implies T_2$.
+\end{Ex}
+\begin{Sol}\end{Sol}
+Suppose $X$ is $T_4$, then for each disjoint pair of closed sets $A$ and $B$ we can find disjoint pair of open sets $A\subset U$ and $B\subset V$, so now in order for our set to be $T_3$ we will take $a \in A$ and keep the set $U$ and now $a$ and $B$ suffice the definition of $T_3$. To further this into a $T_2$ argument just take $b \in B$ while keeping the open set $V$ and we're done.
+
+\begin{Ex}
+	Suppose $X$ is compact and $T_2$. Show that $X$ is $T_3$.
+\end{Ex} 
+\begin{Sol}\end{Sol}
+\noindent	Let $X$ be a compact $T_2$ space, it is obviously compact so in order to show it is $T_3$ we just need to show that it is regular. Take $x \in X$ and let $B$ be a closed set in $X$ not containing $x$, $B$ is compact. Since $X$ is $T_2$ we can find $U_x$ and $U_b$ for every $b \in B$ such that $U_x \cap U_b = \emptyset$. Now consider the cover of $B$: $\mathcal{B}=\{U_b|b\in B \}$, by compactness of $B$ we can reduce this to a finite subcover $\mathcal{B}' = \{U_{b1},U_{b2}, \dots, U_{bn} \}$. Now let $V = \bigcup_{i=1}^n U_{bi}$, it is clearly open and contains $b$ but not $x$. Now let $U = \bigcap_{i=1}^n U_{xi}$, $U$ is open and contains $x$ but not $b$ and thus $U \cap V = \emptyset$. So now we have satisfied regularity and $X$ is $T_3$.
+	
+\begin{Ex}
+	Suppose $X$ is compact and $T_2$. Show that $X$ is $T_3$.
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+\noindent Let $X$ be a compact $T_2$ space, then for $T_4$ we just need to show normality of $X$ as it is already $T_1$. Take disjoint closed sets $A$ and $B$ in $X$. We have proven that $X$ is $T_3$ so, for every $a \in A$ exists $U_a$ and $V_a$ satisfying the properties of $T_3$. Now consider the following open cover of $A$: $\mathcal{A} = \{U_a | a \in A}$, clearly this open cover yields a finite subcover $\mathcal{A}' = \{U_{a1},\dots,U_{an} \}$. Now let $U$ be the union of sets in $\mathcal{A}'$, $A \subset U$. Now let $V$ be the finite intersection of coresponding $V_{xi}$. $V$ is open in $X$ and $B \subset U$, moreover by the construction $U \cap V =\emptyset$ satisfying the properties of $T_4$.
+
+\begin{Ex}
+	Suppose $X$ is metrizable, show that $X$ is $T_3$
+\end{Ex}
+\begin{Sol}\end{Sol}
+\noindent Suppose $a \in X$ and take closed $B$ not containing $a$. Get a $d$ metric on $X$. Now there exists $\epsilon > 0$ such that $B_\epsilon(a) \cap B = \emptyset$, then  let $ U= B_{\frac{\epsilon}{2}}(a)$ and let $V= \bigcup_{b\in B} B_{\frac{\epsilon}{2}}(b)$. Clearly $U\cap V = \emptyset$ sufficing conditions of $T_3$.
+
+\begin{Ex}
+	Suppose $X$ is metrizable, show that $X$ is $T_4$
+\end{Ex}
+
+
 
 \end{document}
