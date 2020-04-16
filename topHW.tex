@@ -15,7 +15,8 @@
 \newtheorem{Ex}{Exercise}
 \newtheorem{Sol}{Solution}
 
-
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\ra}{\rightarrow}
 \begin{document}
 
 
@@ -71,9 +72,7 @@ Now let's show that (1): $B \cup l(B) \subset \bar{B}$ and (2): $\bar{B} \subset
 \end{Ex}
 
 \begin{Sol} \end{Sol}
-\noindent$\implies$: Suppose $U \in \tau_d$ is an open set, and assume it's nonempty. Now if $U = X$, $U$ is a union of all open balls in $\tau_d$ as $X \in \tau_d$ because $X$ is an open ball in $d$ for any metric $d$. Now if $U \neq X$, but $U in \tau_d$ that means that $U$ is an open ball or a union of open balls, as union of sets in $\tau_d$ is still in $\tau_d$.
-
-$\impliedby$: If $U$ is a union of open metric balls, then each component of $U$ is in $\tau_d$, hence $U \in \tau_d$.
+\noindent Let every set $U \subset X$ have property $O$ if it is a union of open balls. Every set with property $O$ is in $\tau_d$ and thus it suffices to show that $O$ sets compose a topology. Firstly $\emptyset$ is a union of no open balls and $X$ is the union of all open balls. Now union of $O$ sets is just a bigger $O$ set by definition. Now to prove that intersection of two $O$ sets $U$ and $V$ is an $O$ set, take $x \in U \cap V$, then $x$ is in the intersection of two open balls $B_1 =B_{\epsilon_1}(x_1)$ and $B_2 =B_{\epsilon_2}(x_2)$, so now define $a := min(\epsilon_1 - d(x,x_1), \epsilon_2 - d(x,x_2))$. Now, if $y \in B_a(x)$ then $d(y,x_1) \le d(y,x) + d(x,x_1) \le a$ so $y \in B_1$ and by similar argument $y \in B_2$. So $y \in  B_1 \cap B_2$ and $B_a(x) \subset B_1 \cap B_2$. Now as this is true for every $x$ we get that the intersection is a union of open balls.
 
 \begin{Ex}
 	Let $X = \mathbb{R}$ and $d_1(x,y) = |x-y|$ and $d_2(x,y) = 2|x-y|$ be metrics. Show that $\tau_{d1} = \tau_{d2}$. 
@@ -145,8 +144,7 @@ Let $X=\{a,b\}$ with the following open sets:$\emptyset, \{a\}, \{a,b\}$. Is $X$
 \end{Ex}
 
 \begin{Sol} \end{Sol}
-\noindent To show that $(A. \tau_A)$ is a space we need to show $A \in \tau_A$ and $\emptyset \in \tau_A$. To show this we have to find $U \in \tau_X$ such that $U \cap A = A$, and $V \in \tau_X$ such that $V \cap A = \emptyset$. Let's take $U = X$, and $V = \emptyset$, by definition $U,V$ satisfy our needs, so $(A , \tau_A)$ is a space with a subspace topology.
-
+\noindent To show that $(A. \tau_A)$ is a space we need to show $A \in \tau_A$ and $\emptyset \in \tau_A$. To show this we have to find $U \in \tau_X$ such that $U \cap A = A$, and $V \in \tau_X$ such that $V \cap A = \emptyset$. Let's take $U = X$, and $V = \emptyset$. Now to show that unions and intersections are in $\tau_A$. Take $U$ and $V$ to be any open sets in $X$, then we need to show that $(V \cap A)\cap (U \cap A)$ is in $\tau_A$. To do this we just need to show that this is the same as $A \cap (V \cap U)$ as this is for sure open in subspace topology. Start by taking $x \in LHS$, thus the $x$ is in both $U$ and $V$ and it is also in $A$ so it is in $RHS$. Now when we do the converse we get the closedness under intersections. Now to prove that infinite unions are in the topology we just do the same set theory manipulation.  
 \begin{Ex}
 	Suppose $(X, \tau_X)$ and $(Y, \tau_Y)$ are spaces, $f: X \rightarrow Y$ is a continuous and $A \subset X$. Let $(A, \tau_A)$ be the space with subspace topology. Show $f|A$ is continuous. 
 \end{Ex}
@@ -159,8 +157,8 @@ Let $X=\{a,b\}$ with the following open sets:$\emptyset, \{a\}, \{a,b\}$. Is $X$
 \end{Ex}
 
 \begin{Sol} \end{Sol}
-\noindent (1): Discrete topology is a topology because $X \in 2^X$ and $\emptyset \in 2^X$ and $\tau_X = 2^X$. \\
-\noindent (2): Course topology is a topology because by definition it only contains emppty set and the whole set.
+\noindent (1): Discrete topology is a topology because $X$ and $\emptyset$ are for sure in there, and also if we take unions or intersection over subsets of $X$ we will still get a subset of $X$. \\
+\noindent (2): Course topology is a topology because by definition it only contains emppty set and the whole set, so if we take a union we get the whole set back (which is in the topology) and if we take an intersection we get back the empty set. 
 
 \begin{Ex}
 	Show that the space $(X, \tau_X)$ has the discrete topology if and only if $\{x\}$ is open in $X \forall x \in X$ if and only if $\forall (Y, \tau_Y)$, and all functions $f: X \rightarrow Y$ are continuous. 
@@ -293,7 +291,7 @@ Cover A by open sets from $X$ and throw in the open set $V = X \setminus A$, tha
 \end{Ex}
 
 \begin{Sol} \end{Sol}
-\noindent $\implies$: Let $W$ be open in $X \times Y$, now by definition of topology $W$ is either a cartesian product $U \times V$ where $U \in X$, $V \in Y$ or the union of such sets. Converse follows similar logic.
+\noindent $\implies$: Let $W$ be open in $X \times Y$, now by definition of topology $W$ is either a cartesian product $U \times V$ where $U \in X$, $V \in Y$ or the union of such sets.
 
 \begin{Ex}
 	Given functions $f: W \rightarrow X \text{ and } g: W \rightarrow Y$ define $(f,g): W \rightarrow X \times Y$ as $(f,g)(w)=(f(w),g(w))$. Show that $(f,g)$ is continuous if and only if $f$ and $g$ are continuous.  
@@ -307,8 +305,50 @@ Cover A by open sets from $X$ and throw in the open set $V = X \setminus A$, tha
 \end{Ex}  
 
 \begin{Sol} \end{Sol} 
-\noindent $\implies$: Assume $U_i$ is of form $V_{i1} \times V_{i2} \times \cdots \times V_{in}$, then $U_i$ is open. Now take $S \in \tau$ and show that $S = \bigcup U_i$. If $S = X \times Y$, then $S = \bigcup_{i \in I}U_i$, as we will have $U_i = C_{ij}$ at least once for each $V_{ij}$ and the union of all open sets is for sure equal to the space. Now if $S = \emptyset$ just take all empty $U_i$ and you're done.
+\noindent Not important for this exercise but what does $V_{i_{1}}\cap
+V_{i_{2}}...\cap V_{i_{n}}$ look like? Ignoring the order that we write down
+the indices, it should be of the form $U=U_{i_{1}}\times U_{i_{2}}....\times
+U_{i_{n}}\times \Pi _{i\neq i_{k}}X_{i}.$
 
+Formally $U=\Pi _{i\in I}U_{i}$ so that $U_{i}\subset X_{i}$ open in $X_{i}$%
+, and with finitely many exceptions $U_{i}=X_{i}.$ Such a $U$ is a \textbf{%
+	basic open set }$\ $\ (every open set in $\Pi X_{i}$ is a union of sets of
+the format $U=\Pi _{i\in I}U_{i}$).
+
+By the proof that follows every open set in $\Pi X_{i}$ is a union of sets
+of the format $U_{i_{1}}\times U_{i_{2}}....\times U_{i_{n}}\times \Pi
+_{i\neq i_{k}}X_{i}.$
+
+(From subbasis to basis to topology.)
+
+Notice a much more general claim. Suppose $X$ is any set and $S\subset 2^{X}$
+is a collection of sets so that $\emptyset \in S$ and $X\in S$ and so that
+if $\{V_{1},V_{2},..,V_{n}\}\subset S$ then $\cap _{i=1}^{n}V_{i}\in S.$
+What topology does $S$ generate? Let $\tau _{S}$ be the collection of all
+sets $U\subset X$ so that $U$ is a union of sets in $S.$ Keep in my we are
+trying to understand the smallest (coursest) topology $\tau _{X}$ so that $%
+S\subset \tau _{X}.$ Notice $\tau _{S}\subset \tau _{X}.$
+
+$\emptyset \in \tau _{S}$
+
+$X\in \tau _{S}$
+
+$\tau _{S}$ is closed under unions (if for each $i\in I$ the set $U_{i}$ is
+a union of sets in $S.$ Then $\cup _{i\in I}U_{i}$\ is a union of sets in $S$
+why? if $x\in \cup _{i\in I}U_{i}$ then $x\in U_{i}$ for some $i$ and hence $%
+x\in A\subset U_{i}$ for some $A\in S$).
+
+Is $\tau _{S}$ closed under finite intersections
+
+It is adequate to show that if $U\in \tau _{S}$ and $V\in \tau _{S}$ then $%
+U\cap V\in \tau _{S}.$
+
+$U=(\cup _{i\in I}A_{i})$ with $A_{i}\in S.$ And $V=(\cup _{j\in J}B_{j})$
+with $B_{j}\in S.$
+
+$U\cap V=(\cup _{i\in I}A_{i})\cap (\cup _{j\in J}B_{j})=\cup _{I\times
+	J}(A_{i}\cap B_{j})$ . The last set is $\tau _{S}$ since each $A_{i}\cap
+B_{j}\in S.$ (This proof is from the notes obviously i just wanted to have it handy as i liked it)
 \begin{Ex}
 	Take a function $f: W \rightarrow \prod_{i \in I}X_i$ and show it is continuous iff each function $\pi_i : W \rightarrow X_i$ is continuous.  
 \end{Ex}   
@@ -337,12 +377,13 @@ $\implies$:
 \begin{Sol}\end{Sol}
 \noindent We consider a sequence of sequences, where each is a subsequence of the last. Define $x_0 = a_1,a_2,\dots$ to be our original sequence, and construct $x_1=a_11,a_12$ to be a sequence where our first component converges(guaranteed by sequential compactness). \\
 Now similarly build $x_n$ to be a subsequence of $x_{n-1}$ such that the $n$-th component converges. Now consider: \\ \\
-\begin{array}{llll}
-	$a_{11}$& $a_{12}$& $a_{13}$& \ldots\\
-	$a_{21}$& $a_{22}$& $a_{23}$& \ldots\\
-	$a_{31}$& $a_{32}$& $a_{33}$& \ldots\\
-	\vdots& \vdots& \vdots& \ddots\\
-\end{array}\\ \\
+
+%\begin{array}{cccc}
+%	$a_{11}$ & $a_{12}$ & $a_{13}$ & $\cdots$ \\ 
+%	$a_{21}$ & $a_{22}$ & $a_{23}$ & $\cdots$ \\ 
+%	$a_{31}$ & $a_{32}$ & $a_{33}$ & $\cdots$ \\ 
+%	$\vdots$ & $\vdots$ & $\vdots$ & $\ddots$
+%\end{array} \\\\
 More specifically consider the sequence on the diagonal of the "matrix", each $a_mm$ converges in the $X_m$ and thus the whole sequence converges in the product and it is the subsequence of $x_0$, hence the product is sequentially compact. 
 
 \begin{Ex}
@@ -355,13 +396,13 @@ More specifically consider the sequence on the diagonal of the "matrix", each $a
 If $X \times Y$ is compact, is $X$ compact?
 \end{Ex}
 \begin{Sol}\end{Sol}
-\noindent By previous exercise, we know that if one component is not compact, the whole product is not compact.
+\noindent By previous exercise, we know that if one component is not compact, the whole product is not compact. So in order for the product to be compact we need $X$ to be compact.
 
 \begin{Ex}
 	Prove that every metric space is Hausdorff($T_2$).
 \end{Ex}
 \begin{Sol}\end{Sol}
-\noindent Let $X$ be a metri space with metric $d$. Get two distinct points $x,y \in X$, To find $U$ containing $x$ but not $y$ just let $U$ be the open ball with radius $\frac{d(x,y)}{2}$ centered at $x$, and do the same for $y$. 
+\noindent Let $X$ be a metric space with metric $d$. Get two distinct points $x,y \in X$, To find $U$ containing $x$ but not $y$ just let $U$ be the open ball with radius $\frac{d(x,y)}{2}$ centered at $x$, and do the same for $y$. 
 
 \begin{Ex}
 	If $X$ is $T_2$ and $Y$ is $T_2$, prove that $X \times Y$ is $T_2$.
@@ -390,12 +431,7 @@ For converse assume $X \subset \mathbb{R}$ is compact but for contradiction supp
 \end{Ex}  
 
 \begin{Sol}\end{Sol}
-Suppose for contradiction that $f$ is not a closed map. Then there exists a closed subset $V$ of $X$ whose image $f(X)$ is not closed in $Y$. This means that there exists a convergent sequence $a_n \in f(V)$ whose limit is not contained in $f(V)$\\
-
-Now by compactness of $X$ we know the inverse image $f^{-1}(a_n)$ of the sequence contains a limit point, denote it by $z$, which lies in $V$ (as $V$ is closed). But then, by continuity of $f$, we also know that $f(z)$ must be a limit point of the sequence $a_n$. Now, as the latter converges, we deduce that this limit point must be the unique limit (Hausdorff guarantees it). Thus we have
-
-$$z \in V \implies f(z)\not \in f(V)$$ 
-Yielding us a contradiction.
+\noindent Take a closed $C \subset X$, we want to prove $f(C)$ is closed. First note that $C$ is compact as it is a subset of a compact space. Hence $f(C)$ is a compact subset of a $T_2$ space. Now to prove that $K = f(C)$ is closed take $y \in Y\setminus K$, since $Y$ is $T_2$ there are disjoint open sets $U_y$ and $V_z$ such that $y\in U_y$ and $z\in V_z$ for every $z\in Y$. Now $\bigcup_{i\in I} V_{zi}$ is an open cover of $K$ and yields a finite subcover $\{V_z | z \in L\}$ where $L$ is finite. Now $\bigcap_{z \in F}U_y$ is an open neighborhood of $y$ disjoint from $K$. Since $y$ is arbitrary $K$ is closed.   
 
 \begin{Ex}
 	If X is metrizable and A is not closed. Then if $x \in \bar{A}\setminus A$ there exists a sequence $a_n$ converging to $x$ and for all $n$ we have $a_n \in A$
@@ -449,7 +485,7 @@ Suppose $X$ is $T_4$, then for each disjoint pair of closed sets $A$ and $B$ we 
 \end{Ex}
 
 \begin{Sol}\end{Sol}
-\noindent Let $X$ be a compact $T_2$ space, then for $T_4$ we just need to show normality of $X$ as it is already $T_1$. Take disjoint closed sets $A$ and $B$ in $X$. We have proven that $X$ is $T_3$ so, for every $a \in A$ exists $U_a$ and $V_a$ satisfying the properties of $T_3$. Now consider the following open cover of $A$: $\mathcal{A} = \{U_a | a \in A}$, clearly this open cover yields a finite subcover $\mathcal{A}' = \{U_{a1},\dots,U_{an} \}$. Now let $U$ be the union of sets in $\mathcal{A}'$, $A \subset U$. Now let $V$ be the finite intersection of coresponding $V_{xi}$. $V$ is open in $X$ and $B \subset U$, moreover by the construction $U \cap V =\emptyset$ satisfying the properties of $T_4$.
+\noindent Let $X$ be a compact $T_2$ space, then for $T_4$ we just need to show normality of $X$ as it is already $T_1$. Take disjoint closed sets $A$ and $B$ in $X$. We have proven that $X$ is $T_3$ so, for every $a \in A$ exists $U_a$ and $V_a$ satisfying the properties of $T_3$. Now consider the following open cover of $A$: $\mathcal{A} = \{U_a | a \in A\}$, clearly this open cover yields a finite subcover $\mathcal{A}' = \{U_{a1},\dots,U_{an} \}$. Now let $U$ be the union of sets in $\mathcal{A}'$, $A \subset U$. Now let $V$ be the finite intersection of coresponding $V_{xi}$. $V$ is open in $X$ and $B \subset U$, moreover by the construction $U \cap V =\emptyset$ satisfying the properties of $T_4$.
 
 \begin{Ex}
 	Suppose $X$ is metrizable, show that $X$ is $T_3$
@@ -461,6 +497,111 @@ Suppose $X$ is $T_4$, then for each disjoint pair of closed sets $A$ and $B$ we 
 	Suppose $X$ is metrizable, show that $X$ is $T_4$
 \end{Ex}
 
+\begin{Sol}
+\noindent Let $A$ and $C$ be disjoint closed subsets in $X$. Now for each $x \in A$ find $\epsilon_x$ such that open metric ball $B(x,\epsilon_x)$ is disjoint with $C$, similarly find $\epsilon_y$ for every $y \in C$. Now let $U = \bigcup_{i \in I}B(y_i, \epsilon_{yi}/3)$ and $V = \bigcup_{i \in I}B(x_i, \epsilon_{xi}/3)$. Clearly, $V$ and $U$ are open in $X$, and $A \subset V$, $C \subset U$. \\
+Now suppose $z \in U \cap V$, then $d(x,z)< \frac{\epsilon_x}{3}$ and $d(y,z) < \frac{\epsilon_y}{3}$. That would imply that $d(x,y) \le \frac{\epsilon_y}{3} + \frac{\epsilon_x}{3} < \epsilon_x$, assuming $\epsilon_x > \epsilon_y$. But then $y \in B(x,\epsilon_x)$, yielding a contradiction.
+\end{Sol}
 
+\begin{Ex}
+	Suppose $X$ is compact, show that $X$ is locally compact.
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+\noindent $X$ is open and is an open neighborhood of every point in the space, and as $\bar{X}= X$ it's closure is compact, so $X$ is locally compact.
+\begin{Ex}
+	Suppose each of $X$ and $Y$ are locally compact. Prove that $X \times Y$ is locally compact.
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+\noindent Let $(x,y)$ be a point in $X \times Y$, now as $X$ is locally compact, there exists an open $U$ containing $X$ such that $\bar{U}$ is compact, similaryly we find an open $V$ with compact closure in $Y$. Now $U \times V$ is open in the product topology and$\bar{U} \times \bar{V}$ is compact in the product space as it is a product of compact sets, there fore we found our open set with compact closure and $X \times Y$ is locally compact. 
+
+\begin{Ex}
+	Show that countable product $\R \times \R \times \cdots \times \R$ is not locally compact.
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+\noindent Consider a point $x^n = (x_1,x_2,\dots, x_n)$ in the countable product. Every open set $U$ containing $x^n$ is of the form $(a_1,b_1)\times(a_2,b_2)\times \cdots \times \R \times \R$ so it's closure won't be compact as $\R$ is not compact, thus sufficing to show the countable product is not compact.
+
+\begin{Ex}
+	Suppose $X$ is linearly ordered space with at least two elements $a < b$. Suppose $m$ is minimal in $X$ and $m < x\in X$. Must the half open interval $[m,x)$ be open? Suppose $M$ is maximal in $X$. If $x<M$ must the half open interval $(x,M]$ be open in $X$? Suppose $X$ has only one point. What are the open rays? What are the open sets in $X$?
+\end{Ex}
+\begin{Sol}\end{Sol}
+\noindent Half open interval $[m,x)$ is actually just left open ray $L_x$ and is therefore open in $X$. Similarly $(x,M]$ is $R_x$. If $X$ has only one point $x$, then $L_x = R_x = x$ and only open sets are $X$ and $\emptyset$.
+
+\begin{Ex}
+	Does every linearly ordered space $(X,<)$ satisfy the $T_2$ axiom?
+ \end{Ex}
+
+\begin{Sol}\end{Sol}
+\noindent Suppose $a,b \in X$ and $a \neq b$, then $\{a,b\}\subset X$. Assume $a<b$, then we have two cases: \\
+1) If there exists $c$ such that $a<c<b$, then we can just take $L_c$ and $R_c$ and thus satisfy the $T_2$ axiom\\
+2) If there is no point between $a$ and $b$, then just take $R_a$ and $L_b$ and satisfy the $T_2$ axiom.
+
+\begin{Ex}
+	Suppose $(X,<)$ is a well ordered space with $x_1 \ge x_2 \ge x_3 \dots$. Must $\lim_{n \rightarrow \infty}$ exist? Is it possible that all terms of $x_n$ are distinct?
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+\noindent The limit must exist as we have a minimal element and our sequence has to become constant at some point, thus not all entries can be distinct.
+
+\begin{Ex}
+Suppose $(X,<)$ is an infinite well ordered space with maximal element $M$ and suppose $x_n$ is a sequence in $X$. Show that $x_n$ has a constant subsequence $ x_{n1} \le x_{n2} \le \cdots $. Must $x_{mj}$ converge? 
+\end{Ex}
+
+\begin{Sol}
+	\noindent If there exists a constant subsequence it immediately solves both of our problems. So let's assume such a subsequence doesn't exist. For starters take only distinct terms of $x_n$. Then let $x_{n1} =m_1 = min\{x_1,x_2,\dots \}$. Let $m_2 = x_{n2}$ be the minimum of the terms with index bigger than $n_1$ and so on. This creates a subsequence $m_1 < m_2 < \dots$  \\ 
+	Now we have $m_n < M$ for all $n$. Let $B = \{ x \in X|m_n < x \forall n \}$. Let $b=min(B)$. Now clearly $m_n < b$, so let $U$ be an open set containing $b$. If $b\in L_x$ for some $x$ then we have $m_n \in L_x$. If $b \in R_x$ then $x\not \in B$ and hence there exists some n for which $x<m_n$. Thus $x<m_{n+k}$, this shows that $m_n \rightarrow b$.
+\end{Sol}
+
+\begin{Ex}
+	Suppose $X$ is a space and $Y$ is a set and $f : X \rightarrow Y$ is a surjection. Declare $U \subset Y$ open iff $f^{-1}(U)$ is open. Show this is really a topology on $Y$.  
+\end{Ex}
+\begin{Sol}\end{Sol}
+	First ti show that the set $Y$ is open in $Y$, it is obvious it is as $f^{-1}(Y)=X$. Similarly $\emptyset$ is open in $Y$ as it is its own preimage. So know we have to show that if $U_1, U_2, \dots $ are open in $Y$ so is their union. For this just take in consideration that $f^{-1}(\bigcup_{i \in I}U_i) = \bigcup_{i \in I} f^{-1}(U_i)$ and as every individual preimage is open so will be the union of preimages and thus our union is open. Now we want to show that $U \cap V$ is open assuming both $U$ and $V$ are open. To prove this just consider that $f^{-1}(V \cap U) = f^{-1}(U) \cap f^{-1}(V)$ and as both preimages are open so is their intersection and thus $U \cap V$ is open finishing the proof.
+
+\begin{Ex}
+	Every closed map is a quotient map
+\end{Ex}
+\begin{Sol}\end{Sol}
+Take spaces $X$ and $Y$ and a closed map $f: X \rightarrow Y$. Now if we take a closed set $K$ in $Y$, we know that $f^{-1}(K)$ is closed and thus $(f^{-1}(K))^c$ is open and mapped to $K^c$ and thus open sets are mapped to open sets and our map is a quotient map. 
+
+\begin{Ex}
+	Every open map is a quotient map
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+\noindent Take spaces $X$ and $Y$ and open map $f$, then any open set $U$ in $Y$ has open preimage $V$ in $X$, similarly any open set $V$ is mapped to an open $U$ finishing the proof.
+
+\begin{Ex}
+	Every homeomorphism is a quotient map.
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+Take to spaces $X$ and $Y$ and homeomorphism $h$. Now $h$ being continuous guarantees that preimage of every open $U$ in $Y$ is open in $X$. Now as $h$ is homeomorphic that gives us continuous $h^{-1}$ which guarantees us that each open $V$ in $X$ is mapped to an open set in $Y$, hence open sets in $Y$ are exactly the ones whose preimage is open.    
+
+\begin{Ex}
+	Being homotopic is an equivalence relation on the set of maps $C(X,Y)$.
+\end{Ex}
+\begin{Sol}\end{Sol}
+\noindent 1) Is $f~f$? Define $H: X \times [0,1] \rightarrow Y$ as $H(x,t) = f(x)$ \\
+2) Suppose $f \sim g$, is $g~f$? Let $G_t = H_{1-t}$ if $H$ connects $f$ to $g$ \\
+3) Suppose $f \sim g$ and $g \sim h$. Given the homotopies $H_{fg}$ and $H_{gh}$ and define $H_{fh}(t)$ as $H_{fg}(2t)$ for $t \in (0,\frac{1}{2})$ and $H_{gh}(2t-1)$ for $t\in (\frac{1}{2},1)$.    
+
+\begin{Ex}
+	Homotopy equivalence is an equivalence relation.
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+\noindent 1) Is $X\sim X$? Let $f = g = id_X$. Define $H: X \times [0,1] \rightarrow X$ as $H(x,t)=x$ \\
+2) If $X \sim Y$, is $Y \sim X$? True by definition of homotopy inverses \\
+3) If $X \sim Y$ and $Y \sim Z$ is $X \sim Z$? Start with $f: X \ra Y$, $g : Y \ra X$ and $h: Y \ra Z$, $k: Z \ra Y$. \\ 
+Now we get $hf: X \ra Z$ and $gk: Z \ra X$
+
+\begin{Ex}
+	Show that $X$ is contractible if and only if $X$ is homotopy equivalent to a one point space.
+\end{Ex} 
+
+\begin{Sol}\end{Sol}
+\noindent $\implies$: Assume $X$ is contractible, that means that $id_x$ is homotopic to a constant map to a one point subspace of $X$, will finish tomorrow I'm tired...
 
 \end{document}
