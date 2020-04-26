@@ -310,8 +310,8 @@ V_{i_{2}}...\cap V_{i_{n}}$ look like? Ignoring the order that we write down
 the indices, it should be of the form $U=U_{i_{1}}\times U_{i_{2}}....\times
 U_{i_{n}}\times \Pi _{i\neq i_{k}}X_{i}.$
 
-Formally $U=\Pi _{i\in I}U_{i}$ so that $U_{i}\subset X_{i}$ open in $X_{i}$%
-, and with finitely many exceptions $U_{i}=X_{i}.$ Such a $U$ is a \textbf{%
+Formally $U=\Pi _{i\in I}U_{i}$ so that $U_{i}\subset X_{i}$ open in $X_{i}$
+, and with finitely many exceptions $U_{i}=X_{i}.$ Such a $U$ is a \textbf{
 	basic open set }$\ $\ (every open set in $\Pi X_{i}$ is a union of sets of
 the format $U=\Pi _{i\in I}U_{i}$).
 
@@ -378,12 +378,14 @@ $\implies$:
 \noindent We consider a sequence of sequences, where each is a subsequence of the last. Define $x_0 = a_1,a_2,\dots$ to be our original sequence, and construct $x_1=a_11,a_12$ to be a sequence where our first component converges(guaranteed by sequential compactness). \\
 Now similarly build $x_n$ to be a subsequence of $x_{n-1}$ such that the $n$-th component converges. Now consider: \\ \\
 
-%\begin{array}{cccc}
-%	$a_{11}$ & $a_{12}$ & $a_{13}$ & $\cdots$ \\ 
-%	$a_{21}$ & $a_{22}$ & $a_{23}$ & $\cdots$ \\ 
-%	$a_{31}$ & $a_{32}$ & $a_{33}$ & $\cdots$ \\ 
-%	$\vdots$ & $\vdots$ & $\vdots$ & $\ddots$
-%\end{array} \\\\
+\begin{array}{cccc}
+	$a_{11}$ & $a_{12}$ & $a_{13}$ & $\cdots$ \\ 
+	$a_{21}$ & $a_{22}$ & $a_{23}$ & $\cdots$ \\ 
+	$a_{31}$ & $a_{32}$ & $a_{33}$ & $\cdots$ \\ 
+	$\vdots$ & $\vdots$ & $\vdots$ & 
+\end{array} \\\\
+
+
 More specifically consider the sequence on the diagonal of the "matrix", each $a_mm$ converges in the $X_m$ and thus the whole sequence converges in the product and it is the subsequence of $x_0$, hence the product is sequentially compact. 
 
 \begin{Ex}
@@ -604,4 +606,86 @@ Now we get $hf: X \ra Z$ and $gk: Z \ra X$
 \begin{Sol}\end{Sol}
 \noindent $\implies$: Assume $X$ is contractible, that means that $id_x$ is homotopic to a constant map to a one point subspace of $X$, will finish tomorrow I'm tired...
 
+\begin{Ex}
+	Suppose $(X,d)$ is a metric space and suppose the continuous surjection $q: X \ra Y$ is a quotient map. Show that $Y$ is a sequential space.
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+\noindent As we know that $X$ is a metric space, we know that $X$ is sequential, so take a nonclosed set $A$ and a sequence $a_1,a_2,\dots \ra x$ where $x \not\in A$. Now as we know $A$ is nonclosed and $q$ is a quotient map, we know that $q(A)$ is nonclosed. Now as we know that $q$ is continuous it will map converging sequences to converging sequences so $g(a_1), q(a_2) \dots \ra q(x)$ and $q(x) \not\in q(A)$ so $Y$ is sequential.
+
+\begin{Ex}
+	Suppose $X$ is a sequential space and $Z$ is any space and $f: X\ra Z$ is any map. Then $f$ is continuous iff for each sequence $\{x_1,x_2,\dots x\}$ then $f(x_n) \ra f(x)$  
+\end{Ex}
+
+\begin{Sol}
+\end{Sol}
+\noindent $\impliedby$: Suppose that for an arbitrary sequence $\{x_1,x_2,\dots x\}$ in $X$ we have $f(x_n) \ra f(x)$. Now find an open $K$ in $Z$,    
+
+
+\begin{Ex}
+	Suppose for eacth $i\in I$ that $A_i$ is a closed compact subset of the compact space $X$. Then $\emptyset \neq \bigcap_{i \in I}A_i$ if and only if $A_{i1} \cap A_{i2} \cap \cdots \cap A_{ik} \neq \emptyset$ for finite $k$.
+\end{Ex}
+\begin{Sol}
+\end{Sol}
+\noindent One direction is trivial. For the other direction let $U_i = X \setminus A_i$ for each $i$. If $\bigcap_{i \in I}A_i = \emptyset$ then $\{U_i\}$ is an open cover admiting an open subcover  of X, however,  finite union of $U_i$ would fail to cover a finite intersection of $A_i$ giving us a contradiction.
+
+\begin{Ex}
+	Show that if $dim(X) = 0$, then $dim(X \times X \cdots) = 0$.
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+\noindent If $dim(X)=0$ then the basis of $X$ is composed of clopen sets, so know denote the basis as $A_1,A_2,\dots$, if we consider the product topology on the product, the base will be composed of the sets of the form $\prod_{i=j}^{n}A_i \times X \times X \cdots$, and thus be clopen as each component is clopen in $X$.
+
+\begin{Ex}
+	Let $C = \{0,1\} \times \{0,1\} \dots$ Is $C\times C$ homeomorphic to $C$? 
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+Try $h: C \ra C \times C$ defined as $h(s_1,s_2,\dots) = (s_1,s_3,s_5,\dots)(s_2,s_4,\dots)$. To show that $h$ is injective just take $a$ and $b$ in C such that $h(a) = h(b)$, that means that all their odd and even coordinates are the same, so $a = b$. To prove it's surjective just take any $c \in C \times C$ and reconstruct the $h^{-1}(c)$. So now to finish we just have to prove $h$ is continuous and we are done. To do this notice that open sets 
+
+
+\begin{Ex}
+	Must every homeomorphism $h: \R \ra \R$ be such that $h(q) \in \mathbb{Q}$ for all $q \in \mathbb{Q}$? Is it true if $h$ isometry or linear.
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+\noindent Consider $h(x) = x +\sqrt{2}$ which is clearly injective, surjective and continuous but does not map $\mathbb{Q}$ to $\mathbb{Q}$. this $h$ is also an isometry so it works for that as well. To show that it doesn't work if $h$ is linear just consider $h(x) = \sqrt{2} \cdot x$, it does everything we need.
+
+\begin{Ex}
+	Suppose $g: A \ra B$ is a continuous bijection. Prove $g$ is a homeomorphism iff $g$ is a quotient map.
+ \end{Ex} 
+\begin{Sol}
+\end{Sol}
+\noindent One direction is obvious as $g$ being a homeomorphism implies that $g$ is a quotient map. For other direction assume $g$ is a continuous, bijective quotient map, so now we have to prove that $g^{-1}$ is continuous in order to get what we need. So let $K$ be open in $A$, so now we want to know that $(g^{-1})^{-1}(K)$ is open in $B$, but that is $g(K)$ which we know is open as $g$ is continuous.
+
+\begin{Ex}
+	Suppose $r: X \ra A \subset X$ is a retraction. Then $r(x) = x$ if and only if $x \in A$.
+\end{Ex}
+
+\begin{Sol}
+\end{Sol}
+\noindent If $x\in A$ then we get what we want by definition of a retraction. If $x\not \in A$ then since $im(r) \subset A$ and thus $r(x) \in A$ so $r(x) \neq x$. 
+
+\begin{Ex}
+	Suppose $X = [0,1]$ and $A = \{0,1\}$. Prove or disprove that $A$ is a retract of $X$.
+\end{Ex}
+\begin{Sol}\end{Sol}
+\noindent Since $X$ is connected and $A$ isn't no function $X \ra A$ can be continuous.
+
+\begin{Ex}
+	Suppose $X$ is $T_2$ and $A \subset X$ and $r:X \ra A$ is a retraction. Prove that $A$ is closed.
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+
+\noindent Take $x \not \in A$, so $r(x) \in A$ and $x \neq r(x)$. So by $X$ being $T_2$ we can get disjoint open sets such that $x\in U$ and $r(x) \in V$. Let $W = U \cap r^{-1}(V)$. We know $x\in W$ so we WTS that $x \not \in A$. If $a \in U \cap A$, then then $r(a) = a \not \in V$. Now as $x \in r^{-1}(V)$ iff $r(x) \in V$ so our $a \not\in r^{-1}(V)$. This shows $W \cap A = \emptyset$.
+
+\begin{Ex}
+	$x \ra x^2$ and $x \ra |x|$. Is either a retraction? 
+\end{Ex} 
+
+
+\begin{Sol}
+\end{Sol}
+\noindent First fnction isn't a retraction as it has fixed point set $\{0,1\}$ which isn't connected so by previous exercise function can't be a retraction. Second function is a retraction with retract $A = \R^{\ge 0}$.
 \end{document}
