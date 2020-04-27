@@ -559,13 +559,13 @@ Suppose $(X,<)$ is an infinite well ordered space with maximal element $M$ and s
 	Suppose $X$ is a space and $Y$ is a set and $f : X \rightarrow Y$ is a surjection. Declare $U \subset Y$ open iff $f^{-1}(U)$ is open. Show this is really a topology on $Y$.  
 \end{Ex}
 \begin{Sol}\end{Sol}
-	First ti show that the set $Y$ is open in $Y$, it is obvious it is as $f^{-1}(Y)=X$. Similarly $\emptyset$ is open in $Y$ as it is its own preimage. So know we have to show that if $U_1, U_2, \dots $ are open in $Y$ so is their union. For this just take in consideration that $f^{-1}(\bigcup_{i \in I}U_i) = \bigcup_{i \in I} f^{-1}(U_i)$ and as every individual preimage is open so will be the union of preimages and thus our union is open. Now we want to show that $U \cap V$ is open assuming both $U$ and $V$ are open. To prove this just consider that $f^{-1}(V \cap U) = f^{-1}(U) \cap f^{-1}(V)$ and as both preimages are open so is their intersection and thus $U \cap V$ is open finishing the proof.
+\noindent	First ti show that the set $Y$ is open in $Y$, it is obvious it is as $f^{-1}(Y)=X$. Similarly $\emptyset$ is open in $Y$ as it is its own preimage. So know we have to show that if $U_1, U_2, \dots $ are open in $Y$ so is their union. For this just take in consideration that $f^{-1}(\bigcup_{i \in I}U_i) = \bigcup_{i \in I} f^{-1}(U_i)$ and as every individual preimage is open so will be the union of preimages and thus our union is open. Now we want to show that $U \cap V$ is open assuming both $U$ and $V$ are open. To prove this just consider that $f^{-1}(V \cap U) = f^{-1}(U) \cap f^{-1}(V)$ and as both preimages are open so is their intersection and thus $U \cap V$ is open finishing the proof.
 
 \begin{Ex}
 	Every closed map is a quotient map
 \end{Ex}
 \begin{Sol}\end{Sol}
-Take spaces $X$ and $Y$ and a closed map $f: X \rightarrow Y$. Now if we take a closed set $K$ in $Y$, we know that $f^{-1}(K)$ is closed and thus $(f^{-1}(K))^c$ is open and mapped to $K^c$ and thus open sets are mapped to open sets and our map is a quotient map. 
+\noindent Take spaces $X$ and $Y$ and a closed map $f: X \rightarrow Y$. Now if we take a closed set $K$ in $Y$, we know that $f^{-1}(K)$ is closed and thus $(f^{-1}(K))^c$ is open and mapped to $K^c$ and thus open sets are mapped to open sets and our map is a quotient map. 
 
 \begin{Ex}
 	Every open map is a quotient map
@@ -579,7 +579,7 @@ Take spaces $X$ and $Y$ and a closed map $f: X \rightarrow Y$. Now if we take a 
 \end{Ex}
 
 \begin{Sol}\end{Sol}
-Take to spaces $X$ and $Y$ and homeomorphism $h$. Now $h$ being continuous guarantees that preimage of every open $U$ in $Y$ is open in $X$. Now as $h$ is homeomorphic that gives us continuous $h^{-1}$ which guarantees us that each open $V$ in $X$ is mapped to an open set in $Y$, hence open sets in $Y$ are exactly the ones whose preimage is open.    
+\noindent Take to spaces $X$ and $Y$ and homeomorphism $h$. Now $h$ being continuous guarantees that preimage of every open $U$ in $Y$ is open in $X$. Now as $h$ is homeomorphic that gives us continuous $h^{-1}$ which guarantees us that each open $V$ in $X$ is mapped to an open set in $Y$, hence open sets in $Y$ are exactly the ones whose preimage is open.    
 
 \begin{Ex}
 	Being homotopic is an equivalence relation on the set of maps $C(X,Y)$.
@@ -604,7 +604,9 @@ Now we get $hf: X \ra Z$ and $gk: Z \ra X$
 \end{Ex} 
 
 \begin{Sol}\end{Sol}
-\noindent $\implies$: Assume $X$ is contractible, that means that $id_x$ is homotopic to a constant map to a one point subspace of $X$, will finish tomorrow I'm tired...
+\noindent $\implies$: Assume $X$ is contractible, that means that $id_x$ is homotopic to a constant map to a one point subspace of $X$, now we want to show that $X$ And $A = \{a\}$ are homotopy equivalent. So take maps $f: X \ra A$ such that $f(x) =a$ and $g: A \ra X$ such that $g(a) = x_0$. \\
+Now consider $fg : A \ra A$, this is clearly exactly $id_A$ and hence homotopic to $id_A$. Now take into consideraton $gf: X \ra X$ and notice that $gf(x) = x_0$, $\forall x\in X$, but we alredy know that $id_X$ is homotopic to this by contractability of $X$. \\
+\noindent $\impliedby$: Assume $X$ and $A$ are homotopy equivalent. Take same $f$ and $g$ as in the previous part. Now as we know that $gf: X \ra X$ is actually constant map $X \ra \{x_0\}$ and it is homotopic to $id_X$ which is exactly what we want in the definition of contractability.
 
 \begin{Ex}
 	Suppose $(X,d)$ is a metric space and suppose the continuous surjection $q: X \ra Y$ is a quotient map. Show that $Y$ is a sequential space.
