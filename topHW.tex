@@ -355,20 +355,20 @@ B_{j}\in S.$ (This proof is from the notes obviously i just wanted to have it ha
 
 \begin{Sol}\end{Sol}
 \noindent $\implies$: Suppose $f$ is continuous and construct $id_j : \prod_{i \in I}X_i \rightarrow X_j$, by definition each $id_j$ is continuous. Now note that $f \circ id_j = \pi_j$ for each $j$, and as composition of two continuous functions is continuous, each $\pi_j$ is continuous.  \\
-\noindent$\impliedby$: Suppose each $pi_i$ is continuous. Let $S= \prod_{i \in I}U_i$ be open in $\prod_{i \in I}X_i$, then $f^{-1}(S) = \bigcap_{i \in I}\pi_i^{-1}(U_i)$, a countable intersection of open sets, hence countable.
+\noindent$\impliedby$: Suppose each $pi_i$ is continuous. Let $S= \prod_{i \in I}U_i$ be open in $\prod_{i \in I}X_i$, then $f^{-1}(S) = \bigcap_{i \in I}\pi_i^{-1}(U_i)$, a finite intersection of open sets, hence finite.
 
 \begin{Ex}
 	Show what are convergent sequences in the countable product $X_1 \times X_2 \times \dots$.
 \end{Ex}
 \begin{Sol}\end{Sol}
 \noindent My best guess is that convergent sequences in countable product $\prod_{i \in I}X_i$ are sequences $x_n$ such that $\pi_i(x_n)$ converges in $X_i$. \\ 
-$\implies$:  
+\noindent To see that this is true Consider the sequence $x_{i1}, x_{i2},\dots x_i$ converging in $X_i$, for each $X_i$. thus each sequence $x_{in}$ is in every open neighborhood od $x_i$, so now if each $x_{in} = \pi_i(x_n)$, we know that $x_n$ is in every open neighborhood of $(x_1,x_2,\dots)$.  
 
 \begin{Ex}
 	If $X_1$ is not compact, prove that $X_1 \times X_2 \dots$ is not compact.
 \end{Ex}
 \begin{Sol}\end{Sol}
-\noindent Suppose that the product is compact for contradiction, then for every open cover $O$ in the product, we can find a finite subcover $O_\lambda$, as $O_\lambda$ is open, it is a union of open sets, and thus its components are open in each $X_i$, so $O_1$ but  can't be finite in $X_1$, thus $O$ doesn't yield an open cover, so the product is not compact.
+\noindent Start with an open cover of $X_1$ that doesn't yield a finite subcover, call it $O_1$, now if we want to cover the product, we'll start with $O_\lambda = O_1 \times X_2 \times \cdots$, now if we try to find a finite subcover it has to finite $X_1$ with finitely many subcovers of $O_1$, but we can't do that and hence the product is not compact.
 
 \begin{Ex}
 	Show that if each $X_n$ is sequentially compact, then the countable product $\prod_{i=1}^{n}X_i$ is sequentially compact.
@@ -378,12 +378,12 @@ $\implies$:
 \noindent We consider a sequence of sequences, where each is a subsequence of the last. Define $x_0 = a_1,a_2,\dots$ to be our original sequence, and construct $x_1=a_11,a_12$ to be a sequence where our first component converges(guaranteed by sequential compactness). \\
 Now similarly build $x_n$ to be a subsequence of $x_{n-1}$ such that the $n$-th component converges. Now consider: \\ \\
 
-\begin{array}{cccc}
-	$a_{11}$ & $a_{12}$ & $a_{13}$ & $\cdots$ \\ 
-	$a_{21}$ & $a_{22}$ & $a_{23}$ & $\cdots$ \\ 
-	$a_{31}$ & $a_{32}$ & $a_{33}$ & $\cdots$ \\ 
-	$\vdots$ & $\vdots$ & $\vdots$ & 
-\end{array} \\\\
+%\begin{array}{cccc}
+%	$a_{11}$ & $a_{12}$ & $a_{13}$ & $\cdots$ \\ 
+%	$a_{21}$ & $a_{22}$ & $a_{23}$ & $\cdots$ \\ 
+%	$a_{31}$ & $a_{32}$ & $a_{33}$ & $\cdots$ \\ 
+%	$\vdots$ & $\vdots$ & $\vdots$ & 
+%\end{array} \\\\
 
 
 More specifically consider the sequence on the diagonal of the "matrix", each $a_mm$ converges in the $X_m$ and thus the whole sequence converges in the product and it is the subsequence of $x_0$, hence the product is sequentially compact. 
@@ -690,4 +690,29 @@ Try $h: C \ra C \times C$ defined as $h(s_1,s_2,\dots) = (s_1,s_3,s_5,\dots)(s_2
 \begin{Sol}
 \end{Sol}
 \noindent First fnction isn't a retraction as it has fixed point set $\{0,1\}$ which isn't connected so by previous exercise function can't be a retraction. Second function is a retraction with retract $A = \R^{\ge 0}$.
+
+
+\begin{Ex}
+	Suppose $X$ and $Y$ are soaces and $f$ is a function. Prove that $f$ is continuous iff for each $x\in X$, the function $f$ is continuous at $x$.
+\end{Ex}
+
+\begin{Sol}\end{Sol}
+\noindent Say that $f$ is continuous, that means that if $V$ is open in $Y$, then $f^{-1}(V)$ is open in $X$. So now if we take $x$ such that $f(x) \in V$, then we know that $x \in U$ and $U$ is open in $X$ so $f$ is continuous at $x$. \\
+\noindent For other direction assume that $f$ is continuous at $x$ for every $x\in X$. Now take a closed $K \subset X$ such that $x\in K$ and $f(K) \subset V$ for an open $V \subset Y$, but then $f$ isn't continuous at $x$, giving us a contradiction. \\
+
+\begin{Ex}
+	Check that poset topology is in fact a topology.
+\end{Ex}
+\begin{Sol}
+\end{Sol}
+\noindent $X$ and $\emptyset$ are both closed in this topology. Now look let's look at $K_1 \cup K_2$ where both $K_1$ and $K_2$ are closed in $X$. 
+
+\begin{Ex}
+	Show that direct sum topology is in fact a topology.
+\end{Ex}
+
+\begin{Sol}
+\end{Sol}
+\noindent First we check that $X$ and $\emptyset$ are closed in this topology: $X$ is closed as $X \cap X_n = X_n$ and $X_n$ is closed in $X_n$ for every $X_n$. Similarly $\emptyset \cap X_n = \emptyset$ for each $X_n$. Now we take closed $A,B \subset X$. To check if $A\cup B$ is closed, notice that $A \cap X_n$ and $B \cap X_n$ are both closed in $X_n$ then so is $(A \cup B) \cap X_n$, and as this holds for each $X_n$ we can conclude that $A \cup B$ is closed in $X$. Now we consider $A_1, A_2,\dots$ all closed in $X$. In order to prove that $\bigcap_{i\in I}A_i$ we follow the same logic: as each $A_i \cap X_n$ is closed then $\bigcap_{i \in I}(A_i \cap X_n) = (\bigcap_{i\in I}A_i) \cap X_n$ is closed. And as this holds for each $X_n$ we get that infinite intersection of closed sets is closed. 
+
 \end{document}
