@@ -705,7 +705,22 @@ Try $h: C \ra C \times C$ defined as $h(s_1,s_2,\dots) = (s_1,s_3,s_5,\dots)(s_2
 \end{Ex}
 \begin{Sol}
 \end{Sol}
-\noindent $X$ and $\emptyset$ are both closed in this topology. Now look let's look at $K_1 \cup K_2$ where both $K_1$ and $K_2$ are closed in $X$. 
+\noindent First we see that $X$ is closed as $\forall x\in X$ if $a\ge x$ then $a \in X$. Also empty set is closed as it contains no points and thus for every point in $\emptyset$ every point bigger then the point is in $\emptyset$. Now take $K_1, K_2, \dots$ to be closed subsets of $X$. Consider $\bigcap_{i=1}^{\infty}K_i$, now we can express each $K_i$ as $a_{i1} \le a_{i2} \le \cdots$, so now by taking the intersection, if there is a special point $a \in \bigcap_{i=1}^{\infty}K_i$, then also every point bigger then it needs to be in every one of the sets as they are closed, hence the infinite intersection is closed. Finally consider $K_1 \cup K_2$, this is closed because if we take any $a \in K_1$, every $x\ge a$ is also in $K_1$ and thus in $K_1 \cup K_2$, same logic applies to any $b \in K_2$.
+
+\begin{Ex}
+	Check that $T_0 \ra POSET$ determines a poset.
+\end{Ex}
+\begin{Sol}
+\end{Sol}
+\noindent Reflexivity is obvious as $x \ra x$ and thus $x \le x$. For antisymmetry consider $x,y$ such that $x \ra  y$ and $y\ra x$, then $x$ is in every open set containing $y$ and $y$ is in every open set contining $x$, but $T_0$ property of our space we can guarantee that for any two points $x,y$ we can find an open set containing $x$ but not $y$ hence $x = y$. To prove transitivity take $x \ra y$ and $z$ such that $y \ra z$, then $x$ is in every open set contining $y$, and $y$ is in every open set containing $z$ and thus $x$ is in every open set containing $z$ and thus $x\ra z$.
+
+\begin{Ex}
+	Prove that POSET $\ra T_0 \ra$ POSET is identity.
+\end{Ex}
+\begin{Sol}
+\end{Sol}
+\noindent Start with poset $(X, \le)$ and transform it into a $T_0$ space. Now you have a space with poset topology. So now by we take closed set $K$, it contains $a$ and every $x$ such that $a\le x$, now every open set containing $x$, also contains each point $a$ such that $a \le x$, so $a$ is in every open set around $x$ and thus $a \ra x$ and $a \le x$ in our "new" poset. Thus we can see that we're getting the same exact poset so our composition is identity.
+
 
 \begin{Ex}
 	Show that direct sum topology is in fact a topology.
